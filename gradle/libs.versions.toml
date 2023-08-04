@@ -14,6 +14,12 @@ hilt-android-compiler = "2.47"
 hilt-lifecycle-viewmodel = "1.0.0-alpha03"
 androidx-hilt-compiler = "1.0.0"
 hilt-navigation-compose = "1.1.0-alpha01"
+room-runtime = "2.6.0-alpha02"
+room-compiler = "2.6.0-alpha02"
+room-testing = "2.6.0-alpha02"
+mockk = "1.13.5"
+retrofit = "2.9.0"
+converter-gson = "2.9.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -36,6 +42,12 @@ androidx-hilt-lifecycle-viewmodel = { group = "androidx.hilt", name = "hilt-life
 
 androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "androidx-hilt-compiler" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-runtime" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-compiler" }
+androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room-testing" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converter-gson" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
