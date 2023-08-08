@@ -1,4 +1,4 @@
-package com.kmutswairo.dogbreedsapp
+package com.kmutswairo.dogbreedsapp.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
