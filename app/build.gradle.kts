@@ -21,6 +21,12 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField(
+            "String",
+            "BASE_URL",
+            "\"https://dog.ceo/\"",
+        )
     }
 
     buildTypes {
@@ -41,6 +47,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -67,6 +74,10 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.androidx.room.testing)
     testImplementation(libs.mockk)
     ksp(libs.androidx.room.compiler)

@@ -20,6 +20,12 @@ room-testing = "2.6.0-alpha02"
 mockk = "1.13.5"
 retrofit = "2.9.0"
 converter-gson = "2.9.0"
+room-ktx = "2.6.0-alpha02"
+coil = "2.4.0"
+coil-compose = "2.4.0"
+material = "1.6.0-alpha02"
+accompanist-navigation-animation = "0.31.6-rc"
+navigation-compose = "2.7.0-rc01"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -48,6 +54,12 @@ androidx-room-testing = { group = "androidx.room", name = "room-testing", versio
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converter-gson" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-ktx" }
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil-compose" }
+androidx-material = { group = "androidx.compose.material", name = "material", version.ref = "material" }
+accompanist-navigation-animation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "accompanist-navigation-animation" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
