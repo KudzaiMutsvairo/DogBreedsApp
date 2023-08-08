@@ -6,5 +6,5 @@ import javax.inject.Inject
 class DeleteAllDogBreedsUseCase @Inject constructor(
     private val repository: DogBreedsRepository,
 ) {
-    suspend operator fun invoke() = repository.deleteAllDogBreeds()
+    suspend operator fun invoke(): Boolean = repository.deleteAllDogBreeds()
 }

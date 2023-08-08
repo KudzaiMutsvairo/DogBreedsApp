@@ -35,13 +35,8 @@ class DogBreedsRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun deleteAllDogBreeds(): Resource<Int> {
-        return try {
-            val result = dogBreedsDao.deleteAllDogBreeds()
-            Resource.Success(data = result)
-        } catch (e: Exception) {
-            Resource.Error("An error occurred while deleting all dog breeds")
-        }
+    override suspend fun deleteAllDogBreeds(): Boolean {
+        return dogBreedsDao.deleteAllDogBreeds() > 0
     }
 
     override suspend fun fetchRemoteDogBreeds(): Flow<Resource<List<DogBreed>>> {
