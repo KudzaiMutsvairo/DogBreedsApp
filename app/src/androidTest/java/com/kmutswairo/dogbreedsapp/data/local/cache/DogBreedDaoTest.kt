@@ -32,12 +32,12 @@ class DogBreedDaoTest {
     }
 
     val dogBreed1 = DogBreedsEntity(
-        breedName = "breed1",
+        name = "breed1",
         subBreeds = listOf("subBreed1", "subBreed2"),
     )
 
     val dogBreed2 = DogBreedsEntity(
-        breedName = "breed2",
+        name = "breed2",
         subBreeds = listOf("subBreed1", "subBreed2"),
     )
 
