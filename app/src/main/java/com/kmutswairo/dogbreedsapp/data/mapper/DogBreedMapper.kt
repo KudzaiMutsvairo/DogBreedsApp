@@ -6,7 +6,7 @@ import com.kmutswairo.dogbreedsapp.domain.model.DogBreed
 fun DogBreedsEntity.toDogBreed(): DogBreed {
     return DogBreed(
         id = id!!,
-        name = breedName,
+        name = name,
         subBreeds = subBreeds,
     )
 }
@@ -14,7 +14,7 @@ fun DogBreedsEntity.toDogBreed(): DogBreed {
 fun DogBreed.toDogBreedsEntity(): DogBreedsEntity {
     return DogBreedsEntity(
         id = id,
-        breedName = name,
+        name = name,
         subBreeds = subBreeds,
     )
 }
