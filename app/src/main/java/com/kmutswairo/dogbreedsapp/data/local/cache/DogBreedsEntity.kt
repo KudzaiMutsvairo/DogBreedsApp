@@ -10,7 +10,7 @@ import com.kmutswairo.dogbreedsapp.util.Constants
 data class DogBreedsEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
-    var breedName: String,
+    var name: String,
     @TypeConverters(SubBreedsConverter::class)
     var subBreeds: List<String>,
 )
