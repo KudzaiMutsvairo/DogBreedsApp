@@ -1,8 +1,6 @@
 package com.kmutswairo.dogbreedsapp.data.repository
 
-import com.kmutswairo.dogbreedsapp.data.local.DogBreedsDatabase
 import com.kmutswairo.dogbreedsapp.data.local.cache.DogBreedsDao
-import com.kmutswairo.dogbreedsapp.data.mapper.toDogBreed
 import com.kmutswairo.dogbreedsapp.data.mapper.toDogBreedsEntity
 import com.kmutswairo.dogbreedsapp.data.remote.DogApi
 import com.kmutswairo.dogbreedsapp.domain.model.DogBreed
@@ -19,20 +17,8 @@ class DogBreedsRepositoryImpl @Inject constructor(
     private val dogBreedsDao: DogBreedsDao,
 ) : DogBreedsRepository {
 
-    override suspend fun getAllDogBreedsFromCache(): Flow<Resource<List<DogBreed>>> {
-        return flow {
-            emit(Resource.Loading())
-            try {
-                val dogBreeds = dogBreedsDao.getAllDogBreeds()
-                emit(
-                    Resource.Success(
-                        data = dogBreeds,
-                    ),
-                )
-            } catch (e: Exception) {
-                emit(Resource.Error("An error occurred while fetching data"))
-            }
-        }
+    override suspend fun getAllDogBreedsFromCache(): Flow<List<DogBreed>> {
+        return dogBreedsDao.getAllDogBreeds()
     }
 
     override suspend fun deleteAllDogBreeds(): Boolean {
@@ -64,5 +50,9 @@ class DogBreedsRepositoryImpl @Inject constructor(
 
     override suspend fun saveDogBreedsToCache(dogBreeds: List<DogBreed>): Boolean {
         return dogBreedsDao.insertDogBreeds(dogBreeds.map { it.toDogBreedsEntity() }).isNotEmpty()
+    }
+
+    override suspend fun saveSingleDogBreedToCache(dogBreed: DogBreed): Boolean {
+        return dogBreedsDao.insertSingleDogBreed(dogBreed.toDogBreedsEntity()) > 0
     }
 }

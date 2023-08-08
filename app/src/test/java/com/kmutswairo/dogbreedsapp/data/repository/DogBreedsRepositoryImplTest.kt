@@ -10,16 +10,15 @@ import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.junit.After
-import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import retrofit2.Response
-import java.lang.RuntimeException
 
 class DogBreedsRepositoryImplTest {
     private lateinit var repository: DogBreedsRepositoryImpl
@@ -44,15 +43,16 @@ class DogBreedsRepositoryImplTest {
         runTest {
             // Arrange
             val expectedDogBreeds = emptyList<DogBreed>()
-            coEvery { dogBreedsDao.getAllDogBreeds() } returns expectedDogBreeds
+            coEvery { dogBreedsDao.getAllDogBreeds() } returns flow {
+                emit(expectedDogBreeds)
+            }
 
             // Act
             val resultFlow = repository.getAllDogBreedsFromCache()
             val resultList = resultFlow.toList()
 
             // Assert
-            assertTrue(resultList.first() is Resource.Loading)
-            assertTrue(resultList.last() is Resource.Success)
+            assertTrue(resultList.first().isEmpty())
         }
 
     @Test
@@ -71,31 +71,16 @@ class DogBreedsRepositoryImplTest {
                     subBreeds = emptyList(),
                 ),
             )
-            coEvery { dogBreedsDao.getAllDogBreeds() } returns expectedDogBreeds
+            coEvery { dogBreedsDao.getAllDogBreeds() } returns flow {
+                emit(expectedDogBreeds)
+            }
 
             // Act
             val resultFlow = repository.getAllDogBreedsFromCache()
             val resultList = resultFlow.toList()
 
             // Assert
-            assertTrue(resultList.first() is Resource.Loading)
-            assertTrue(resultList.last() is Resource.Success)
-        }
-
-    @Test
-    fun `Given getAllDogBreedsFromCache is called, WHEN there is an error fetching dog breeds from cache, THEN return error resource`() =
-        runTest {
-            // Arrange
-            val expectedDogBreeds = emptyList<DogBreed>()
-            coEvery { dogBreedsDao.getAllDogBreeds() } throws Exception(RuntimeException("Error fetching dog breeds from cache"))
-
-            // Act
-            val resultFlow = repository.getAllDogBreedsFromCache()
-            val resultList = resultFlow.toList()
-
-            // Assert
-            assertTrue(resultList.first() is Resource.Loading)
-            assertTrue(resultList.last() is Resource.Error)
+            assertTrue(resultList.isNotEmpty())
         }
 
     @Test
@@ -107,7 +92,7 @@ class DogBreedsRepositoryImplTest {
         val result = repository.deleteAllDogBreeds()
 
         // Assert
-        assertEquals(2, result.data)
+        assertTrue(result)
     }
 
     @Test
@@ -208,4 +193,42 @@ class DogBreedsRepositoryImplTest {
             // Assert
             assertFalse(result)
         }
+
+    @Test
+    fun `GIVEN insertSingleDogBreed is successul THEN return true`() = runTest {
+        // Arrange
+        val dogBreed = DogBreed(
+            id = 1,
+            name = "affenpinscher",
+            subBreeds = listOf("subBreed1", "SubBreed2"),
+        )
+
+        val dogBreedEntity = dogBreed.toDogBreedsEntity()
+
+        coEvery { dogBreedsDao.insertSingleDogBreed(dogBreedEntity) } returns 1L
+
+        // Act
+        val result = repository.saveSingleDogBreedToCache(dogBreed)
+
+        // Assert
+        assertTrue(result)
+    }
+
+    @Test
+    fun `GIVEN insertSingleDogBreed is not successful THEN return false`() = runTest {
+        // Arrange
+        val dogBreed = DogBreed(
+            id = 1,
+            name = "affenpinscher",
+            subBreeds = listOf("subBreed1", "SubBreed2"),
+        )
+        val dogBreedEntity = dogBreed.toDogBreedsEntity()
+        coEvery { dogBreedsDao.insertSingleDogBreed(dogBreedEntity) } returns -1L
+
+        // Act
+        val result = repository.saveSingleDogBreedToCache(dogBreed)
+
+        // Assert
+        assertFalse(result)
+    }
 }
