@@ -25,7 +25,6 @@ import org.junit.runners.JUnit4
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(JUnit4::class)
 class FavouriteDogBreedsViewModelTest {
-    @ExperimentalCoroutinesApi
     @get:Rule
     val coroutineTestRule = CoroutineTestRule()
 
