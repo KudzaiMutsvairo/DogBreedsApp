@@ -10,6 +10,6 @@ class SubBreedsConverter {
 
     @TypeConverter
     fun toList(data: String): List<String> {
-        return data.split(", ")
+        return if (data.isNotEmpty()) data.split(", ") else emptyList()
     }
 }
