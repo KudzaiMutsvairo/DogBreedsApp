@@ -3,24 +3,26 @@ package com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.breedslist
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.breedslist.events.DogBreedsListEvent
@@ -29,13 +31,14 @@ import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.components.Loa
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.components.NoDataComponent
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.components.ScreenTitle
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.navigation.Screen
+import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun DogBreedsListScreen(
     viewModel: DogBreedsViewModel = hiltViewModel(),
-    showSnackbar: (String, SnackbarDuration) -> Unit,
     navController: NavController,
+    scaffoldPadding: PaddingValues,
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val pullRefreshState = rememberPullRefreshState(
@@ -46,10 +49,9 @@ fun DogBreedsListScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(scaffoldPadding),
     ) {
         ScreenTitle(title = "Dog Breeds")
-        Spacer(modifier = Modifier.height(20.dp))
 
         if (uiState.isLoading) {
             LoadingComponent()
@@ -65,7 +67,9 @@ fun DogBreedsListScreen(
                     .fillMaxSize()
                     .pullRefresh(pullRefreshState),
             ) {
-                LazyColumn {
+                LazyColumn(
+                    modifier = Modifier,
+                ) {
                     items(uiState.breeds) { breed ->
                         DogBreedItem(
                             modifier = Modifier.clickable {
@@ -90,10 +94,27 @@ fun DogBreedsListScreen(
             }
         }
 
-        if (!uiState.message.isNullOrEmpty()) {
-            uiState.message?.let { message ->
-                showSnackbar(message, SnackbarDuration.Short)
+        if (uiState.message != null) {
+            LaunchedEffect(uiState.message) {
+                delay(2000)
+                viewModel.clearMessage()
             }
+
+            AlertDialog(
+                onDismissRequest = {
+                    viewModel.clearMessage()
+                },
+                title = { Text(text = "Dialog Title") },
+                text = { Text(text = uiState.message!!) },
+                confirmButton = {
+                    Button(
+                        onClick = { viewModel.clearMessage() },
+                    ) {
+                        Text(text = "OK")
+                    }
+                },
+                modifier = Modifier.fillMaxSize().wrapContentSize(),
+            )
         }
     }
 }

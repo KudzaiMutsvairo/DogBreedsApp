@@ -87,4 +87,10 @@ class FavouriteDogBreedsViewModel @Inject constructor(
             getFavouriteDogBreeds()
         }
     }
+
+    fun clearMessage() {
+        _uiState.value = _uiState.value.copy(
+            message = null,
+        )
+    }
 }

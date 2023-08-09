@@ -45,7 +45,6 @@ class DogBreedsViewModel @Inject constructor(
     private fun getDogBreeds() {
         _uiState.value = _uiState.value.copy(
             breeds = emptyList(),
-            message = null,
             isLoading = true,
         )
         viewModelScope.launch {
@@ -56,13 +55,13 @@ class DogBreedsViewModel @Inject constructor(
                         message = "No dog breeds found",
                         isLoading = false,
                     )
-                    return@collect
+                } else {
+                    _uiState.value = _uiState.value.copy(
+                        breeds = result,
+                        message = null,
+                        isLoading = false,
+                    )
                 }
-                _uiState.value = _uiState.value.copy(
-                    breeds = result,
-                    message = null,
-                    isLoading = false,
-                )
             }
         }
     }
@@ -93,7 +92,8 @@ class DogBreedsViewModel @Inject constructor(
 
                     else -> {}
                 }
-            } else {
+            }
+            if (!breed.isFavourite) {
                 when (insertFavouriteDogBreedUseCase(breed.toFavouriteDogBreed())) {
                     is Resource.Success -> {
                         _uiState.value = _uiState.value.copy(
@@ -113,5 +113,11 @@ class DogBreedsViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun clearMessage() {
+        _uiState.value = _uiState.value.copy(
+            message = null,
+        )
     }
 }
