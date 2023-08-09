@@ -11,6 +11,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -36,6 +37,7 @@ class ViewDogBreedViewModelTest {
     @After
     fun tearDown() {
         clearAllMocks()
+        Dispatchers.resetMain()
     }
 
     // Test event handling
