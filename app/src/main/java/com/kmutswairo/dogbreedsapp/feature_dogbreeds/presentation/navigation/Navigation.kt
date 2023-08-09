@@ -2,7 +2,7 @@ package com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.navigation
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
-import androidx.compose.material.SnackbarDuration
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -14,7 +14,7 @@ import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.viewbreed.View
 @Composable
 fun Navigation(
     navController: NavHostController,
-    showSnackbar: (message: String, duration: SnackbarDuration) -> Unit,
+    scaffoldPadding: PaddingValues,
 ) {
     NavHost(
         navController = navController,
@@ -48,8 +48,8 @@ fun Navigation(
             },
         ) {
             DogBreedsListScreen(
-                showSnackbar = showSnackbar,
                 navController = navController,
+                scaffoldPadding = scaffoldPadding,
             )
         }
 
@@ -81,8 +81,8 @@ fun Navigation(
             },
         ) {
             FavouriteDogBreedsScreen(
-                showSnackbar = showSnackbar,
                 navController = navController,
+                scaffoldPadding = scaffoldPadding,
             )
         }
 
@@ -114,8 +114,8 @@ fun Navigation(
             },
         ) { entry ->
             ViewDogBreedScreen(
-                showSnackbar = showSnackbar,
                 name = entry.arguments?.getString("name")!!,
+                scaffoldPadding = scaffoldPadding,
             )
         }
     }
