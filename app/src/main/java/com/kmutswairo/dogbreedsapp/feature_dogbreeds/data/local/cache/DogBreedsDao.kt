@@ -18,7 +18,8 @@ interface DogBreedsDao {
     @Query(
         "SELECT dog_breeds.*, favorite_breeds.breedName IS NOT NULL as isFavourite FROM " +
             "${Constants.TABLE_DOG_BREEDS} LEFT JOIN ${Constants.TABLE_FAVORITE_BREEDS} " +
-            "ON dog_breeds.name = favorite_breeds.breedName",
+            "ON dog_breeds.name = favorite_breeds.breedName " +
+            "ORDER BY dog_breeds.name ASC",
     )
     fun getAllDogBreeds(): Flow<List<DogBreed>>
 
