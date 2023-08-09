@@ -1,9 +1,11 @@
 package com.kmutswairo.dogbreedsapp.presentation.viewbreed
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.kmutswairo.dogbreedsapp.domain.usecase.GetBreedImagesUseCase
-import com.kmutswairo.dogbreedsapp.presentation.viewbreed.events.ViewDogBreedEvent
-import com.kmutswairo.dogbreedsapp.util.Resource
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.GetBreedImagesUseCase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.viewbreed.ViewDogBreedState
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.viewbreed.ViewDogBreedViewModel
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.viewbreed.events.ViewDogBreedEvent
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify

@@ -1,14 +1,16 @@
 package com.kmutswairo.dogbreedsapp.presentation.breedslist
 
 import com.kmutswairo.dogbreedsapp.CoroutineTestRule
-import com.kmutswairo.dogbreedsapp.data.mapper.toFavouriteDogBreed
-import com.kmutswairo.dogbreedsapp.domain.model.DogBreed
-import com.kmutswairo.dogbreedsapp.domain.usecase.DeleteFavouriteDogBreedUseCase
-import com.kmutswairo.dogbreedsapp.domain.usecase.GetAllBreedsUseCase
-import com.kmutswairo.dogbreedsapp.domain.usecase.InsertFavouriteDogBreedUseCase
-import com.kmutswairo.dogbreedsapp.domain.usecase.RefreshDogBreedsUseCase
-import com.kmutswairo.dogbreedsapp.presentation.breedslist.events.DogBreedsListEvent
-import com.kmutswairo.dogbreedsapp.util.Resource
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.mapper.toFavouriteDogBreed
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.model.DogBreed
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.DeleteFavouriteDogBreedUseCase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.GetAllBreedsUseCase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.InsertFavouriteDogBreedUseCase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.RefreshDogBreedsUseCase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.breedslist.DogBreedsState
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.breedslist.DogBreedsViewModel
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.breedslist.events.DogBreedsListEvent
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify

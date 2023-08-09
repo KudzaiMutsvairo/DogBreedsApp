@@ -1,8 +1,9 @@
 package com.kmutswairo.dogbreedsapp.data.repository
 
-import com.kmutswairo.dogbreedsapp.data.remote.DogApi
-import com.kmutswairo.dogbreedsapp.data.remote.dto.GetBreedImagesResponse
-import com.kmutswairo.dogbreedsapp.util.Resource
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.remote.DogApi
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.remote.dto.GetBreedImagesResponse
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.repository.ViewBreedRepositoryImpl
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.every

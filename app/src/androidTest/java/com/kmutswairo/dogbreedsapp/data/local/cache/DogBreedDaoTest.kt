@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.filters.SmallTest
-import com.kmutswairo.dogbreedsapp.data.local.DogBreedsDatabase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.DogBreedsDatabase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.cache.DogBreedsDao
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.cache.DogBreedsEntity
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.junit.After

@@ -1,11 +1,13 @@
 package com.kmutswairo.dogbreedsapp.presentation.favouritebreed
 
 import com.kmutswairo.dogbreedsapp.CoroutineTestRule
-import com.kmutswairo.dogbreedsapp.domain.model.FavouriteDogBreed
-import com.kmutswairo.dogbreedsapp.domain.usecase.DeleteFavouriteDogBreedUseCase
-import com.kmutswairo.dogbreedsapp.domain.usecase.GetAllFavouriteDogBreedUseCase
-import com.kmutswairo.dogbreedsapp.presentation.favouritebreed.events.FavouriteBreedsEvent
-import com.kmutswairo.dogbreedsapp.util.Resource
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.model.FavouriteDogBreed
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.DeleteFavouriteDogBreedUseCase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.GetAllFavouriteDogBreedUseCase
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.favouritebreed.FavouriteDogBreedsState
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.favouritebreed.FavouriteDogBreedsViewModel
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.favouritebreed.events.FavouriteBreedsEvent
+import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
