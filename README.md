@@ -12,7 +12,7 @@ This Android app allows users to explore a variety of dog breeds, add them to th
 
 ## App Structure
 
-`app/src/main/java+kotlin/com/kmutswairo/dogbreedsapp`: Contains the main source code for the app.
+`app/src/main/java/com/kmutswairo/dogbreedsapp`: Contains the main source code for the app.
 - app: Contains the Application class for the app.
 - feature_dogbreeds: Contains source code related to the feature including its:
   - data: Contains data-related classes, such as data models and repositories.
@@ -20,3 +20,6 @@ This Android app allows users to explore a variety of dog breeds, add them to th
   - presentation: Contains UI-related code using Jetpack Compose.
   - utils: Contains utility classes and extensions.
 - di: Contains Dagger-Hilt dependency injection modules.
+
+## Screenshot 
+<img src="https://github.com/KudzaiMutsvairo/DogBreedsApp/blob/main/screenshots/screenshot.png" alt="Screenshot" width="300"/>
