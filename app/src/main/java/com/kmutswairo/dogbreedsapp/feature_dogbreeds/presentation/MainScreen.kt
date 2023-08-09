@@ -17,27 +17,28 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.navigation.Navigation
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.navigation.Screen
+import com.kmutswairo.dogbreedsapp.ui.theme.DogBreedsAppTheme
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
-    val appState: SnackbarAppState = rememberSnackbarAppState()
+    DogBreedsAppTheme {
+        val navController = rememberNavController()
 
-    Scaffold(
-        bottomBar = {
-            BottomBar(navController = appState.navController)
-        },
-        snackbarHost = { appState.scaffoldState },
-    ) {
-        Navigation(
-            navController = appState.navController,
-            showSnackbar = { message, duration ->
-                appState.showSnackbar(message = message, duration = duration)
+        Scaffold(
+            bottomBar = {
+                BottomBar(navController = navController)
             },
-        )
+        ) { paddingValues ->
+            Navigation(
+                navController = navController,
+                paddingValues,
+            )
+        }
     }
 }
 
