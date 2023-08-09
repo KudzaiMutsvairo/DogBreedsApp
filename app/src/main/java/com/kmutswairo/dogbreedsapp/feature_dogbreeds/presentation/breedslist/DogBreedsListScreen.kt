@@ -104,7 +104,7 @@ fun DogBreedsListScreen(
                 onDismissRequest = {
                     viewModel.clearMessage()
                 },
-                title = { Text(text = "Dialog Title") },
+                title = { Text(text = "DogBreeds") },
                 text = { Text(text = uiState.message!!) },
                 confirmButton = {
                     Button(
