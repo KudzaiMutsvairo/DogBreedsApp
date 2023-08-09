@@ -20,3 +20,6 @@ This Android app allows users to explore a variety of dog breeds, add them to th
   - presentation: Contains UI-related code using Jetpack Compose.
   - utils: Contains utility classes and extensions.
 - di: Contains Dagger-Hilt dependency injection modules.
+
+## Screenshot 
+<img src="https://github.com/KudzaiMutsvairo/DogBreedsApp/blob/main/screenshots/screenshot.png" alt="Screenshot" width="300"/>
