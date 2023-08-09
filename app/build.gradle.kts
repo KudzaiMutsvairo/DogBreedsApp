@@ -80,6 +80,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     testImplementation(libs.androidx.room.testing)
     testImplementation(libs.mockk)
+    testImplementation(libs.androidx.core.testing)
     testImplementation(libs.kotlinx.coroutines.test)
     ksp(libs.androidx.room.compiler)
     ksp(libs.androidx.hilt.compiler)
