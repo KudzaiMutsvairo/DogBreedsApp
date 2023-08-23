@@ -12,6 +12,8 @@ import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.breedslist.eve
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +26,15 @@ class DogBreedsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var _uiState = MutableStateFlow(DogBreedsState())
-    val uiState = _uiState
+    val uiState = _uiState.stateIn(
+        scope = viewModelScope,
+        started = WhileSubscribed(5_000),
+        initialValue = DogBreedsState(
+            isLoading = true,
+            breeds = emptyList(),
+            message = null,
+        ),
+    )
 
     init {
         getDogBreeds()
