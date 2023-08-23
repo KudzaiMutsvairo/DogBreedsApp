@@ -78,6 +78,7 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.androidx.material)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     testImplementation(libs.androidx.room.testing)
     testImplementation(libs.mockk)
     testImplementation(libs.androidx.core.testing)
