@@ -1,9 +1,9 @@
-package com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreed
+package com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreedimages
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.usecase.GetBreedImagesUseCase
-import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreed.events.ViewDogBreedEvent
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreedimages.events.ViewDogBreedEvent
 import com.kmutswairo.dogbreedsapp.feature.dogbreeds.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

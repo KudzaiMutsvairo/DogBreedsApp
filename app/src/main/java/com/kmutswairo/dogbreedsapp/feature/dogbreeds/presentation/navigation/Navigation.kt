@@ -9,7 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.breedslist.DogBreedsListScreen
 import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.favouritebreed.FavouriteDogBreedsScreen
-import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreed.ViewDogBreedScreen
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreedimages.ViewDogBreedScreen
 
 @Composable
 fun Navigation(

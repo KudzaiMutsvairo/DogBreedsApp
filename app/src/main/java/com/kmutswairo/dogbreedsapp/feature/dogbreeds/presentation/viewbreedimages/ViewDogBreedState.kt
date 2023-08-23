@@ -1,4 +1,4 @@
-package com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreed
+package com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreedimages
 
 data class ViewDogBreedState(
     val isLoading: Boolean = false,

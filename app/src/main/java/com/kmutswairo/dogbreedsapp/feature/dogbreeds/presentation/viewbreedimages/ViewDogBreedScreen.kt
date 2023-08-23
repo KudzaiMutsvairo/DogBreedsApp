@@ -1,4 +1,4 @@
-package com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreed
+package com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreedimages
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +15,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.components.LoadingComponent
 import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.components.NoDataComponent
-import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreed.events.ViewDogBreedEvent
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation.viewbreedimages.events.ViewDogBreedEvent
 
 @Composable
 fun ViewDogBreedScreen(
