@@ -18,12 +18,12 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.breedslist.events.DogBreedsListEvent
 import com.kmutswairo.dogbreedsapp.feature_dogbreeds.presentation.components.DogBreedItem
@@ -40,7 +40,7 @@ fun DogBreedsListScreen(
     navController: NavController,
     scaffoldPadding: PaddingValues,
 ) {
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val pullRefreshState = rememberPullRefreshState(
         refreshing = uiState.isLoading,
         onRefresh = { viewModel.onEvent(DogBreedsListEvent.OnRefresh) },
