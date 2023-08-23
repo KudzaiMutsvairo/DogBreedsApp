@@ -1,8 +1,8 @@
 package com.kmutswairo.dogbreedsapp.domain.usecase
 
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.repository.ViewBreedRepository
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.GetBreedImagesUseCase
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.repository.ViewBreedRepository
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.usecase.GetBreedImagesUseCase
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.util.Resource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk

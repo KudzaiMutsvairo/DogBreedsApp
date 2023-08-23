@@ -1,12 +1,12 @@
 package com.kmutswairo.dogbreedsapp.data.repository
 
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.cache.DogBreedsDao
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.mapper.toDogBreedsEntity
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.remote.DogApi
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.remote.dto.GetAllBreedsResponse
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.repository.DogBreedsRepositoryImpl
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.model.DogBreed
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.local.cache.DogBreedsDao
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.mapper.toDogBreedsEntity
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.remote.DogApi
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.remote.dto.GetAllBreedsResponse
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.repository.DogBreedsRepositoryImpl
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.model.DogBreed
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.util.Resource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.every

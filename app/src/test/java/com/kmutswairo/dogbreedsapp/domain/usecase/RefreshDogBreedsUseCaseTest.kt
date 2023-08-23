@@ -1,11 +1,11 @@
 package com.kmutswairo.dogbreedsapp.domain.usecase
 
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.model.DogBreed
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.DeleteAllDogBreedsUseCase
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.FetchRemoteDogBreedsUseCase
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.RefreshDogBreedsUseCase
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.usecase.SaveDogBreedsToCacheUseCase
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.model.DogBreed
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.usecase.DeleteAllDogBreedsUseCase
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.usecase.FetchRemoteDogBreedsUseCase
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.usecase.RefreshDogBreedsUseCase
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.usecase.SaveDogBreedsToCacheUseCase
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.util.Resource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk

@@ -1,6 +1,6 @@
 package com.kmutswairo.dogbreedsapp.data
 
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.SubBreedsConverter
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.SubBreedsConverter
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

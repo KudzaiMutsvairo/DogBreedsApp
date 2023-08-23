@@ -1,11 +1,11 @@
 package com.kmutswairo.dogbreedsapp.data.repository
 
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.favourites.FavDogBreedsDao
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.favourites.FavouriteDogBreedEntity
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.mapper.toFavoriteDogBreedEntity
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.repository.FavouriteDogBreedsRepositoryImpl
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.domain.model.FavouriteDogBreed
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.util.Resource
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.local.favourites.FavDogBreedsDao
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.local.favourites.FavouriteDogBreedEntity
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.mapper.toFavoriteDogBreedEntity
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.repository.FavouriteDogBreedsRepositoryImpl
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.model.FavouriteDogBreed
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.util.Resource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk

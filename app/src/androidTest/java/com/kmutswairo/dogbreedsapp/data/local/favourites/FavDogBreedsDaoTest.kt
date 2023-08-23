@@ -3,9 +3,9 @@ package com.kmutswairo.dogbreedsapp.data.local.favourites
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.DogBreedsDatabase
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.favourites.FavDogBreedsDao
-import com.kmutswairo.dogbreedsapp.feature_dogbreeds.data.local.favourites.FavouriteDogBreedEntity
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.local.DogBreedsDatabase
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.local.favourites.FavDogBreedsDao
+import com.kmutswairo.dogbreedsapp.feature.dogbreeds.data.local.favourites.FavouriteDogBreedEntity
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
