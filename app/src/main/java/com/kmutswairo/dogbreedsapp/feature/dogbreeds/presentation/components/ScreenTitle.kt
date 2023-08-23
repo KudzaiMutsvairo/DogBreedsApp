@@ -15,8 +15,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kmutswairo.dogbreedsapp.R
 
 @Composable
@@ -32,7 +36,7 @@ fun ScreenTitle(
         horizontalArrangement = Arrangement.Start,
     ) {
         Image(
-            modifier = Modifier.size(34.dp),
+            modifier = Modifier.size(24.dp),
             painter = painterResource(id = R.drawable.paws),
             contentDescription = "Logo",
             colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary),
@@ -40,7 +44,10 @@ fun ScreenTitle(
         Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = title,
-            style = MaterialTheme.typography.displaySmall,
+            fontSize = 20.sp,
+            fontFamily = FontFamily.Default,
+            fontStyle = FontStyle.Normal,
+            fontWeight = FontWeight.Bold,
         )
     }
 }

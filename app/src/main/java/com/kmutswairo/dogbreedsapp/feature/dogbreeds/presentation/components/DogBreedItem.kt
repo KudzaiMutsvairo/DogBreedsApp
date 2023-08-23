@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kmutswairo.dogbreedsapp.feature.dogbreeds.domain.model.DogBreed
+import java.util.Locale
 
 @Composable
 fun DogBreedItem(
@@ -42,7 +43,15 @@ fun DogBreedItem(
                         .weight(1f),
                 ) {
                     Text(
-                        text = breed.name,
+                        text = breed.name.replaceFirstChar {
+                            if (it.isLowerCase()) {
+                                it.titlecase(
+                                    Locale.ROOT,
+                                )
+                            } else {
+                                it.toString()
+                            }
+                        },
                         style = MaterialTheme.typography.titleMedium,
                     )
                 }
@@ -53,9 +62,15 @@ fun DogBreedItem(
                 )
             }
             if (breed.subBreeds.isNotEmpty()) {
-                LazyRow {
-                    items(breed.subBreeds) { item ->
-                        DogSubBreedItem(subBreed = item)
+                Row {
+                    Text(
+                        modifier = Modifier.padding(vertical = 2.dp, horizontal = 5.dp),
+                        text = "Sub Breeds: ",
+                    )
+                    LazyRow {
+                        items(breed.subBreeds) { item ->
+                            DogSubBreedItem(subBreed = item)
+                        }
                     }
                 }
             }
