@@ -3,17 +3,13 @@ package com.kmutswairo.dogbreedsapp.feature.dogbreeds.presentation
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.ContentAlpha
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.navigation.NavDestination
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -50,13 +46,19 @@ fun BottomBar(navController: NavHostController) {
     )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    val excludedRoute = Screen.ViewDogBreed.route + "/{name}"
+
+    if (currentRoute == null || currentRoute == excludedRoute) {
+        return
+    }
 
     BottomAppBar {
         screens.forEach { screen ->
             AddItem(
                 screen = screen,
-                currentDestination = currentDestination,
+                currentRoute = currentRoute,
                 navController = navController,
             )
         }
@@ -66,7 +68,7 @@ fun BottomBar(navController: NavHostController) {
 @Composable
 fun RowScope.AddItem(
     screen: Screen,
-    currentDestination: NavDestination?,
+    currentRoute: String?,
     navController: NavHostController,
 ) {
     BottomNavigationItem(
@@ -81,10 +83,7 @@ fun RowScope.AddItem(
                 )
             }
         },
-        selected = currentDestination?.hierarchy?.any {
-            it.route == screen.route
-        } == true,
-        unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
+        selected = currentRoute == screen.route,
         onClick = {
             navController.navigate(screen.route) {
                 popUpTo(navController.graph.findStartDestination().id)
